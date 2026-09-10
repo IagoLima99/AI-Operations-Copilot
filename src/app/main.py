@@ -1,6 +1,8 @@
-from app.core.config import settings
+from fastapi import FastAPI
 
-print(settings.app_env)
-print(settings.ollama_base_url)
-print(settings.ollama_model)
-print(settings.ollama_timeout)
+app = FastAPI()
+
+
+@app.get("/health", status_code=200)
+async def health_check():
+    return {"status": "ok"}

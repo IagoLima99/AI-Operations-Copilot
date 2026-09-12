@@ -9,7 +9,7 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.141.1",
-    "httpx>=0.28.1",
+    "httpx2>=2.12.0",
     "pydantic-settings>=2.15.0",
     "uvicorn[standard]>=0.52.4",
 ]
@@ -23,6 +23,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "fastapi-cli>=0.0.32",
     "pytest>=9.1.1",
     "pytest-asyncio>=1.4.0",
     "ruff>=0.16.6",
@@ -51,3 +52,6 @@ select = [
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+[tool.fastapi]
+entrypoint = "app.main:app"
